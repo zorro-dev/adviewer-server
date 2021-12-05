@@ -28,9 +28,7 @@ class CatalogController {
     async getAllParts(req, res, next) {
         const parts = await Part.findAll()
 
-        return res.json({
-            parts
-        })
+        return res.json(parts)
     }
 
     async getAllOffers(req, res, next) {
