@@ -1,5 +1,6 @@
 const {Part, ContentPart} = require('../models/models')
 const ApiError = require('../error/ApiError')
+const {Offer} = require("../models/models");
 
 class CatalogController {
 
@@ -21,6 +22,22 @@ class CatalogController {
 
         return res.json({
             parts
+        })
+    }
+
+    async getAllParts(req, res, next) {
+        const parts = await Part.findAll()
+
+        return res.json({
+            parts
+        })
+    }
+
+    async getAllOffers(req, res, next) {
+        const offers = await Offer.findAll()
+
+        return res.json({
+            offers
         })
     }
 
