@@ -15,6 +15,16 @@ class CatalogController {
         return res.json(part)
     }
 
+    async createOffer(req, res, next) {
+        const {part_id} = req.body
+        const {info, photos, videos, hours} = req.body
+
+        const offer = await Offer.create({ info, photos, videos, hours })
+        await Part.update({offer_id: offer.id}, {where:{id : part_id}})
+
+        return res.json(offer)
+    }
+
     async getCatalog(req, res, next) {
         const {id} = req.params
 
@@ -34,9 +44,7 @@ class CatalogController {
     async getAllOffers(req, res, next) {
         const offers = await Offer.findAll()
 
-        return res.json({
-            offers
-        })
+        return res.json(offers)
     }
 
     async updatePart(req, res, next) {

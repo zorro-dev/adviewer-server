@@ -3,6 +3,7 @@ const router = new Router()
 const catalogController = require('../controllers/catalogController')
 
 router.post("/createPart", catalogController.createPart)
+router.post("/createOffer", catalogController.createOffer)
 //router.post("/updatePart", catalogController.updatePart)
 //router.post("/removePart", catalogController.removePart)
 router.get("/getAllParts", catalogController.getAllParts)
