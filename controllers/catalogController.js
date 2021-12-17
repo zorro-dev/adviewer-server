@@ -8,7 +8,7 @@ class CatalogController {
         const {name, is_offer, offer_id, is_hidden, image_url, fragment_type} = req.body
         let {parent_id} = req.body
 
-        if (!parent_id) parent_id = 1;
+        if (!parent_id) parent_id = 0;
 
         const part = await Part.create({name, parent_id, is_offer, is_hidden, offer_id, image_url, fragment_type})
 

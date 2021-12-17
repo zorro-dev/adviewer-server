@@ -14,14 +14,14 @@ const Part = sequelize.define('part', {
 
 const Offer = sequelize.define('offer', {
   id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-  info: {type: DataTypes.STRING, allowNull: false},
-  photos: {type: DataTypes.STRING, allowNull: false},
-  videos: {type: DataTypes.STRING, allowNull: false},
-  hours: {type: DataTypes.STRING, allowNull: false},
+  info: {type: DataTypes.TEXT, allowNull: false},
+  photos: {type: DataTypes.TEXT, allowNull: false},
+  videos: {type: DataTypes.TEXT, allowNull: false},
+  hours: {type: DataTypes.TEXT, allowNull: false},
 })
 
 // для обновления базы данных
-// sequelize.sync({alter: true})
+sequelize.sync({alter: true})
 
 module.exports = {
   Part,
