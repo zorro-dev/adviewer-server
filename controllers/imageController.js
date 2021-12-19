@@ -2,6 +2,7 @@ const uuid = require('uuid')
 const ApiError = require('../error/ApiError')
 const {Image} = require("../models/models");
 const path = require("path")
+const fs = require("fs")
 
 class CatalogController {
 
@@ -13,6 +14,18 @@ class CatalogController {
         const item = await Image.create({url : filename})
 
         image.mv(path.resolve(__dirname, "..", "static", filename))
+
+        return res.json(item)
+    }
+
+    async remove(req, res, next) {
+        const { id } = req.body
+        const item = await Image.findOne({where : {id}})
+        const filename = item.url
+        await item.destroy()
+
+        const filePath = path.resolve(__dirname, "..", "static", filename)
+        fs.unlinkSync(filePath);
 
         return res.json(item)
     }
