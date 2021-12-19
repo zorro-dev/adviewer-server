@@ -5,6 +5,7 @@ const cors = require('cors')
 const fileUpload = require('express-fileupload')
 const router = require('./routes/index')
 const errorHandler = require('./middleware/ErrorHandlingMiddleware')
+const path = require('path')
 const swaggerUI = require("swagger-ui-express");
 //const docs = require('./docs');
 
@@ -16,6 +17,7 @@ console.log("Connected to Database : " + (process.env.DEBUG ? process.env.DB_NAM
 const app = express()
 app.use(cors())
 app.use(express.json())
+app.use(express.static(path.resolve(__dirname, "static")))
 app.use(fileUpload({}))
 app.use('/api', router)
 //app.use('/api-docs',swaggerUI.serve,swaggerUI.setup(docs));
