@@ -20,10 +20,24 @@ const Offer = sequelize.define('offer', {
   hours: {type: DataTypes.TEXT, allowNull: false},
 })
 
+const Image = sequelize.define('image', {
+  id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+  url: {type: DataTypes.TEXT, allowNull: false},
+})
+
+const View = sequelize.define('view', {
+  id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+  item_id: {type: DataTypes.INTEGER, allowNull: false},
+  type: {type: DataTypes.INTEGER, allowNull: false},
+  views : {type: DataTypes.INTEGER, allowNull: false},
+})
+
 // для обновления базы данных
 sequelize.sync({alter: true})
 
 module.exports = {
   Part,
   Offer,
+  Image,
+  View
 }
