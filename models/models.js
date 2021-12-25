@@ -29,7 +29,7 @@ const View = sequelize.define('view', {
   id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
   item_id: {type: DataTypes.INTEGER, allowNull: false},
   type: {type: DataTypes.INTEGER, allowNull: false},
-  views : {type: DataTypes.INTEGER, allowNull: false},
+  time: {type: DataTypes.BIGINT, allowNull: false},
 })
 
 // для обновления базы данных

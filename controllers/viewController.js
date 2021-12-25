@@ -4,17 +4,18 @@ const {View} = require("../models/models");
 class CatalogController {
 
     async addView(req, res, next) {
-        const { item_id, type } = req.body
+        const {list} = req.body
 
-        let view = await View.findOne({where: {item_id, type}})
+        const l = []
 
-        if (!view) view = await View.create({item_id, type, views : 0})
+        for (let i = 0; i < list.length; i ++) {
+            const { item_id, type, time} = list[i]
 
-        let views = view.views;
+            const view = await View.create({item_id, type, time})
+            l.push(view)
+        }
 
-        await View.update({views}, {where: {item_id, type}})
-
-        return res.json(view)
+        return res.json(l)
     }
 
     async getAll(req, res, next) {
