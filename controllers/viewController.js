@@ -8,6 +8,8 @@ class CatalogController {
 
         const l = []
 
+        console.log("add view")
+
         for (let i = 0; i < list.length; i ++) {
             const { item_id, type, time} = list[i]
 
