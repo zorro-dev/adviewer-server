@@ -4,19 +4,18 @@ const {View} = require("../models/models");
 class CatalogController {
 
     async addView(req, res, next) {
-        const {list} = req.body
+        let {list} = req.body
 
         const l = []
+
+        list = JSON.parse(list.toString())
 
         console.log("add view")
         console.log("list " + list.toString())
 
         for (let i = 0; i < list.length; i ++) {
             console.log("item : " + list[i])
-
-            const item_id = JSON.parse(list[i].toString())["item_id"]
-            const type = JSON.parse(JSON.stringify(list[i]))["type"]
-            const time = JSON.parse(JSON.stringify(list[i]))["time"]
+            const {item_id, type, time } = list[i]
 
             console.log("item_id : " + item_id)
             console.log("type : " + type)
