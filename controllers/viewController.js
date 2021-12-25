@@ -16,6 +16,10 @@ class CatalogController {
             const type = list[i]["type"]
             const time = list[i]["time"]
 
+            console.log("item_id : " + item_id)
+            console.log("type : " + type)
+            console.log("time : " + time)
+
             const view = await View.create({item_id, type, time})
             l.push(view)
         }
