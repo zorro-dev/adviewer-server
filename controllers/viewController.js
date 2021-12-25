@@ -12,7 +12,7 @@ class CatalogController {
         console.log("list " + list.toString())
 
         for (let i = 0; i < list.length; i ++) {
-            console.log("item_id : " + list[i])
+            console.log("item : " + list[i])
 
             const item_id = JSON.parse(list[i].toString())["item_id"]
             const type = JSON.parse(JSON.stringify(list[i]))["type"]
