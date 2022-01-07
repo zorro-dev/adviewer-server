@@ -1,0 +1,9 @@
+
+
+export {
+  TYPE_SHOW_DAYS,
+  TYPE_SHOW_VIEWS,
+  TYPE_CATALOG,
+  TYPE_OFFER,
+  TYPE_SLIDE,
+}
