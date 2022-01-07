@@ -11,7 +11,7 @@ const TYPE_SHOW_VIEWS = 1;
 class SlideController {
 
     async create(req, res, next) {
-        const { type, mode, offer_id, link } = req.body
+        const { type, mode, offer_id, link, show_time } = req.body
         let {info} = req.body
 
         if (type === TYPE_SHOW_DAYS) {
@@ -22,7 +22,7 @@ class SlideController {
             }
         }
 
-        const slide = await Slide.create({type, mode, info : JSON.stringify(info), offer_id, link, is_active: true })
+        const slide = await Slide.create({type, mode, info : JSON.stringify(info), offer_id, link, is_active: true, show_time })
 
         return res.json(slide)
     }
@@ -40,7 +40,7 @@ class SlideController {
     }
 
     async update(req, res, next) {
-        const { id, type, mode, offer_id, link } = req.body
+        const { id, type, mode, offer_id, link, show_time } = req.body
         let {info} = req.body
 
         if (type === TYPE_SHOW_DAYS) {
@@ -52,7 +52,7 @@ class SlideController {
         }
 
         await Slide.update(
-            {type, mode, offer_id, info, link, is_active : true},
+            {type, mode, offer_id, info, link, is_active : true, show_time},
             { where: { id } }
         ).catch(err => {
             console.log(err)

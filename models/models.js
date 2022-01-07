@@ -38,6 +38,7 @@ const Slide = sequelize.define('slide', {
   mode: {type: DataTypes.INTEGER, allowNull: false},
   link: {type: DataTypes.STRING, allowNull: false},
   offer_id: {type: DataTypes.INTEGER},
+  show_time: {type: DataTypes.INTEGER},
   is_active: {type: DataTypes.BOOLEAN, allowNull: false},
   info: {type: DataTypes.STRING, allowNull: false},
 })
