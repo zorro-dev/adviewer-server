@@ -20,7 +20,9 @@ class CatalogController {
         list = JSON.parse(JSON.stringify(list))
 
         for (let i = 0; i < list.length; i ++) {
-            const {item_id, type, time } = list[i]
+            const item_id = list[i].item_id
+            const type = list[i].type
+            const time = list[i].time
 
             const view = await View.create({item_id, type, time})
             l.push(view)
