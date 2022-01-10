@@ -52,7 +52,7 @@ class SlideController {
         }
 
         await Slide.update(
-            {type, mode, offer_id, info, link, is_active : true, show_time},
+            {type, mode, offer_id, info : JSON.stringify(info), link, is_active : true, show_time},
             { where: { id } }
         ).catch(err => {
             console.log(err)
